@@ -1,0 +1,32 @@
+<%- include("layouts/header") %>
+<%- include("layouts/navbar") %>
+
+<!-- HEADER -->
+<header class="masthead" style="background-image: url('/img/post-bg.jpg')">
+    <div class="container px-4 px-lg-5">
+        <div class="post-heading">
+            <h1><%= post.title %></h1>
+
+            <span class="meta">
+                Posted by <b><%= post.author %></b>
+            </span>
+        </div>
+    </div>
+</header>
+
+<!-- NỘI DUNG BÀI VIẾT -->
+<article class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+
+            <p><%= post.content %></p>
+
+            <br>
+
+            <a href="/">← Quay lại trang chủ</a>
+
+        </div>
+    </div>
+</article>
+
+<%- include("layouts/footer") %>

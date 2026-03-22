@@ -1,0 +1,52 @@
+<%- include("layouts/header") %>
+<%- include("layouts/navbar") %>
+
+<!-- HEADER -->
+<header class="masthead" style="background-image: url('/img/contact-bg.jpg')">
+    <div class="container px-4 px-lg-5">
+        <div class="page-heading">
+            <h1>Liên hệ</h1>
+            <span class="subheading">Bạn có thể gửi tin nhắn cho mình tại đây</span>
+        </div>
+    </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+
+            <p>Nếu bạn có câu hỏi về việc học lập trình hoặc muốn trao đổi thêm, hãy điền thông tin bên dưới nhé.</p>
+
+            <div class="my-5">
+                <form>
+
+                    <div class="form-floating">
+                        <input class="form-control" type="text" placeholder="Tên của bạn" />
+                        <label>Tên của bạn</label>
+                    </div>
+
+                    <div class="form-floating mt-3">
+                        <input class="form-control" type="email" placeholder="Email" />
+                        <label>Email</label>
+                    </div>
+
+                    <div class="form-floating mt-3">
+                        <textarea class="form-control" placeholder="Nội dung" style="height: 150px"></textarea>
+                        <label>Nội dung</label>
+                    </div>
+
+                    <br>
+
+                    <button class="btn btn-primary text-uppercase">Gửi tin nhắn</button>
+
+                </form>
+            </div>
+
+            <a href="/">← Quay lại trang chủ</a>
+
+        </div>
+    </div>
+</main>
+
+<%- include("layouts/footer") %>

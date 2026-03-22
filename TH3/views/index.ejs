@@ -1,0 +1,44 @@
+<%- include("layouts/header") %>
+<%- include("layouts/navbar") %>
+
+<!-- HEADER -->
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container px-4 px-lg-5">
+        <div class="site-heading">
+            <h1>Blog cá nhân</h1>
+            <span class="subheading">Nơi mình ghi lại quá trình học lập trình</span>
+        </div>
+    </div>
+</header>
+
+<!-- DANH SÁCH BÀI VIẾT -->
+<div class="container px-4 px-lg-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+
+<% if (posts.length > 0) { %>
+
+    <% posts.forEach(post => { %>
+
+        <div class="post-preview">
+            <a href="/detail/<%= post.id %>">
+                <h2 class="post-title"><%= post.title %></h2>
+            </a>
+            <p class="post-meta">Posted by Kim Anh</p>
+        </div>
+
+        <hr class="my-4">
+
+    <% }) %>
+
+<% } else { %>
+
+    <p>Chưa có bài viết nào</p>
+
+<% } %>
+
+        </div>
+    </div>
+</div>
+
+<%- include("layouts/footer") %>
