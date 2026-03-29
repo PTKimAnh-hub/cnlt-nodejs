@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/style.css">
+<title>Trang chủ</title>
+</head>
+<body>
+
+<h1>Danh sách bài viết</h1>
+
+<a href="/blogposts/new">Tạo bài viết mới</a>
+
+<ul>
+<% posts.forEach(post => { %>
+    <li>
+        <h3><%= post.title %></h3>
+        <p><%= post.body %></p>
+        <a href="/blogposts/<%= post._id %>">Xem chi tiết</a>
+    </li>
+    <hr>
+<% }) %>
+</ul>
+
+</body>
+</html>

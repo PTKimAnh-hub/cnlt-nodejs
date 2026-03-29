@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Facebook Mini Blog</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>Blog chia sẻ</header>
+
+<div class="container">
+
+    <div class="create-post">
+        <a href="/blogposts/new">Bạn đang nghĩ gì?</a>
+    </div>
+
+    <% posts.forEach(post => { %>
+        <div class="post">
+            <h3><%= post.title %></h3>
+            <p><%= post.body %></p>
+            <a class="btn" href="/blogposts/<%= post._id %>">Xem bài viết</a>
+            <a class="btn" href="/blogposts/edit/<%= post._id %>">Sửa</a>
+            <a class="btn" href="/blogposts/delete/<%= post._id %>">Xoá</a>
+        </div>
+    <% }) %>
+
+</div>
+
+</body>
+</html>

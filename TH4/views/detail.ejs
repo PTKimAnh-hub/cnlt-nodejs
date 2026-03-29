@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Xem bài viết</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>Blog chia sẻ</header>
+
+<div class="container">
+
+    <div class="post">
+
+        <h2><%= post.title %></h2>
+
+        <p style="margin-top:15px; line-height:1.6; font-size:16px;">
+            <%= post.body %>
+        </p>
+
+        <div style="margin-top:25px;">
+            <a class="btn" href="/">Về trang chủ</a>
+            <a class="btn" href="/blogposts/edit/<%= post._id %>">Sửa</a>
+            <a class="btn" href="/blogposts/delete/<%= post._id %>">Xoá</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
