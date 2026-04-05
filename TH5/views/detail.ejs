@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Xem bài viết</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>Blog chia sẻ</header>
+
+<div class="container">
+
+    <div class="post">
+
+        <h2><%= post.title %></h2>
+
+        <p style="margin-top:15px; line-height:1.6; font-size:16px;">
+            <%= post.body %>
+        </p>
+
+        <div class="actions">
+            <a class="btn" href="/">Về trang chủ</a>
+            <a class="btn edit" href="/blogposts/edit/<%= post._id %>">Sửa</a>
+            <a class="btn delete"
+               href="/blogposts/delete/<%= post._id %>"
+               onclick="return confirm('⚠️ Bạn có chắc muốn xóa không?')">
+                Xóa
+                </a>
+             </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<%
+function highlight(text, keyword) {
+    if (!keyword) return text;
+
+    const regex = new RegExp(`(${keyword})`, 'gi');
+    return text.replace(regex, '<span class="hl">$1</span>');
+}
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mini Blog</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>Blog chia sẻ</header>
+
+<form method="GET" action="/" class="search-box">
+    <input type="text" name="keyword" placeholder="Tìm bài viết..." value="<%= query.keyword || '' %>">
+    <button type="submit">Tìm</button>
+</form>
+
+<div class="container">
+
+    <div class="create-post">
+        <a href="/blogposts/new">Bạn đang nghĩ gì?</a>
+    </div>
+
+    <% posts.forEach(post => { %>
+        <div class="post">
+            <h3><%- highlight(post.title, query.keyword) %></h3>
+            <p class="date">
+                🕒 <%= new Date(post.createdAt).toLocaleString('vi-VN') %>
+            </p>
+            <p><%- highlight(post.body, query.keyword) %></p>
+            <div class="actions">
+                <a class="btn view" href="/blogposts/<%= post._id %>">Xem bài viết</a>
+                <a class="btn edit" href="/blogposts/edit/<%= post._id %>">Sửa</a>
+                <a class="btn delete"
+                   href="/blogposts/delete/<%= post._id %>"
+                   onclick="return confirm('⚠️ Bạn có chắc muốn xóa không?')">
+                   Xóa
+                </a>
+            </div>
+        </div>
+    <% }) %>
+
+</div>
+</body>
+</html>
+
+<div id="toast"></div>
+<script>
+    const query = "<%= query.success || '' %>";
+
+    if (query) {
+        let message = "";
+        let type = "";
+
+        if (query === "created") {
+            message = "✅ Thêm bài viết thành công!";
+            type = "success";
+        } else if (query === "updated") {
+            message = "✏️ Cập nhật thành công!";
+            type = "warning";
+        } else if (query === "deleted") {
+            message = "🗑️ Xóa thành công!";
+            type = "danger";
+        }
+
+        showToast(message, type);
+    }
+
+    function showToast(message, type) {
+        const toast = document.getElementById("toast");
+
+        const div = document.createElement("div");
+        div.className = "toast " + type;
+        div.innerText = message;
+
+        toast.appendChild(div);
+
+        setTimeout(() => {
+            div.classList.add("hide");
+        }, 2500);
+
+        setTimeout(() => {
+            div.remove();
+        }, 3000);
+    }
+</script>
