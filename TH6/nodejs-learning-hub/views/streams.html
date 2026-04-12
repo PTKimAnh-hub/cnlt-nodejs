@@ -1,0 +1,52 @@
+request <!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý nội dung (Streams)</title>
+    <style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f4f7f6;
+        color: #333;
+    }
+    h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+    nav { background: #fff; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    nav a { text-decoration: none; color: #3498db; font-weight: bold; margin-right: 10px; }
+    nav a:hover { color: #2980b9; }
+    form, .content-box { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; }
+    button { background: #3498db; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+    button:hover { background: #2980b9; }
+    textarea, input[type="text"] { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+    pre { background: #2d3436; color: #fab1a0; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 14px; }
+    code { color: #e84393; font-weight: bold; }
+</style>
+</head>
+<body>
+    <h1>Node.js Streams Workshop</h1>
+    <nav><a href="/">Quay lại trang chủ</a></nav>
+    <hr>
+
+    <h3>1. Readable Stream (Đọc bài viết)</h3>
+    <p>Nội dung bài viết được stream từ file <code>story.txt</code>:</p>
+    <iframe src="/streams" width="100%" height="100px"></iframe>
+
+    <h3>2. Writable Stream (Ghi bài viết mới)</h3>
+    <form action="/write-stream" method="POST">
+        <textarea name="content" placeholder="Nhập nội dung bài viết vào đây..."></textarea><br>
+        <button type="submit">Ghi vào file</button>
+    </form>
+
+    <h3>1. Readable & Transform Stream (Đọc bài viết in hoa)</h3>
+    <iframe src="/get-stream-data" width="100%" height="150px"></iframe>
+
+    <h3>4. Duplex Stream</h3>
+    <p>Kiểm tra tính năng Echo (phản hồi dữ liệu) thông qua Console của Server.</p>
+    
+    <hr>
+    <p><a href="/image">Xem ảnh đại diện Blog (Stream Image)</a></p>
+</body>
+</html>
